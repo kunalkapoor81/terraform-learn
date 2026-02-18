@@ -1,0 +1,10 @@
+# Locally installed providers
+.terraform/*
+
+# Local TF state files
+*.tfstate
+*.tfstate.*
+
+
+# tf variable files, may include sensitive data
+*.tfvars
