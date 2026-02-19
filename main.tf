@@ -7,9 +7,12 @@ variable vpc_cidr_block {}
 variable subnet_cidr_block {}
 variable avail_zone {}
 variable env_prefix {}
-variable my_ip {}
+variable my_ip {
+    type = list(string)
+}
 variable instance_type {}
 variable public_key_location{}
+variable private_key_location{}
 
 
 
@@ -78,7 +81,7 @@ resource "aws_default_security_group" "default-sg" {
         from_port = 22
         to_port =  22
         protocol = "TCP"
-        cidr_blocks = [var.my_ip]
+        cidr_blocks = var.my_ip
 
     }
 
@@ -152,6 +155,32 @@ resource "aws_instance" "myapp-server" {
     user_data = file("entry-script.sh")
 
     user_data_replace_on_change = true
+
+    /* connection {
+      type = "ssh"
+      host = self.public_ip
+      user = "ec2-user"
+      private_key = file(var.private_key_location)
+
+    }
+
+
+
+    provisioner "file" {
+        source = "entry-script.sh"
+        destination = "/home/ec2-user/entry-script-server.sh"
+      
+    }
+
+
+    provisioner "remote-exec" {
+        script = "/home/ec2-user/entry-script-server.sh"    
+    }
+
+    provisioner "local-exec" {
+        command = "echo ${self.public_ip}  >> output.txt"
+    }*/
+
 
     tags = {
         Name: "${var.env_prefix}-dev-server"
