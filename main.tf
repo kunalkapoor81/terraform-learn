@@ -9,7 +9,8 @@ variable avail_zone {}
 variable env_prefix {}
 variable my_ip {}
 variable instance_type {}
-variable public_key_location{}
+variable public_key_location {}
+variable private_key_location {}
 
 
 
@@ -153,6 +154,7 @@ resource "aws_instance" "myapp-server" {
 
     user_data_replace_on_change = true
 
+   
     tags = {
         Name: "${var.env_prefix}-dev-server"
     }
