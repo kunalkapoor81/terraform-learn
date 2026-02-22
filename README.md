@@ -32,6 +32,27 @@ The repository is organized across multiple branches, each focusing on specific 
 - Demonstrates operational best practices like system service management and automated bootstrapping.
 - **Skills demonstrated:** EC2 provisioning, user-data scripts, Docker deployment, Terraform lifecycle management.
 
+## 4️⃣ `feature/eks` 🆕
+
+Introduces Kubernetes cluster provisioning using **Amazon EKS**.
+
+This branch demonstrates how to deploy a production-aligned managed Kubernetes cluster on AWS using Terraform.
+
+### What This Branch Covers
+
+- VPC and networking setup for EKS  
+- EKS Control Plane provisioning  
+- Managed Node Groups  
+- IAM Roles and Policies for cluster and worker nodes  
+- Security group configuration  
+- Private subnet architecture for worker nodes  
+- Kubernetes-ready infrastructure foundation  
+
+This represents a shift from single-instance deployments to cloud-native container orchestration.
+
+**Skills demonstrated:**  
+Kubernetes infrastructure, EKS provisioning, IAM configuration, VPC networking for Kubernetes, managed node groups, scalable cluster architecture.
+
 ---
 
 ## 📋 Getting Started
